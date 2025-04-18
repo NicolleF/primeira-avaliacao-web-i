@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <title>ONG ACN</title>
+</head>
+<body>
+    <h1>Atualização cadastral</h1>
+    <form action="#" method="POST" id="updateForm">
+        <div class="form-group">
+            <label for="nome">Nome completo:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+        </div>
+    
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="Digite seu telefone">
+        </div>
+    
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Digite seu e-mail">
+        </div>
+    
+        <div class="form-group">
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required>
+        </div>
+
+        <div class="form-group">
+            <p>Você possui outros animais em casa?</p>
+            <label><input type="radio" name="tem_animais" value="sim" required> Sim</label>
+            <label><input type="radio" name="tem_animais" value="nao"> Não</label>
+        </div>
+    
+        <div class="form-group">
+            <label for="motivo">Por que deseja adotar?</label>
+            <textarea name="motivo" id="motivo" rows="4" placeholder="Conte-nos o motivo pelo qual deseja adotar" required></textarea>
+        </div>
+    
+        <button type="submit" class="atualizar">Atualizar</button>
+    </form>
+    <div id="footer"></div>
+</body>
+</html>
