@@ -1,0 +1,11 @@
+.default-style {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: purple;
+}
+
+.custom-style {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: lightblue;
+    color: darkblue;
+}

@@ -9,7 +9,16 @@
 </head>
 <body>
     <h1>Atualização cadastral</h1>
-    <form action="#" method="POST" id="updateForm">
+
+    <div class="form-style-selection">
+        <label for="estilo">Escolha o estilo do formulário:</label>
+        <select id="estilo" name="estilo" onchange="changeStyle(this.value)">
+            <option value="default">Padrão</option>
+            <option value="custom">Personalizado</option>
+        </select>
+    </div>
+
+    <form action="#" method="POST" id="updateForm" class ="default-style">
         <div class="form-group">
             <label for="nome">Nome completo:</label>
             <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
@@ -41,7 +50,7 @@
             <textarea name="motivo" id="motivo" rows="4" placeholder="Conte-nos o motivo pelo qual deseja adotar" required></textarea>
         </div>
     
-        <button type="submit" class="atualizar">Atualizar</button>
+        <button type="submit" class="update">Atualizar</button>
     </form>
     <div id="footer"></div>
 </body>

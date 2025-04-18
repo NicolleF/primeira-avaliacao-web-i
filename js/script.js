@@ -4,4 +4,16 @@ function createFooter() {
     </footer>`
 }
 
+function changeStyle(value) {
+    const form = document.getElementById("updateForm");
+
+    if (form) {
+        if (value === 'custom') {
+            form.classList.add("custom-style");
+        } else {
+            form.classList.remove("custom-style");
+        }
+    }
+}
+
 document.getElementById("footer").innerHTML = createFooter();
