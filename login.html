@@ -8,6 +8,28 @@
     <title>ONG ACN</title>
 </head>
 <body>
+    <form action="./index.html" method="post" class="login-form">
+        <div>
+             <label for="login">Login</label>
+            <input type="text" id="login" name="login" placeholder="Login" required>
+        </div>
+       
+        <div>
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+        </div>
+     
+        <button type="submit">Autenticar</button>
+    </form>
     <div id="footer"></div>
 </body>
 </html>
+
+
+<!-- A segunda página deverá ser uma tela com dois campos: um do tipo text com a label “Login” e
+outro do tipo password com a label “Senha”. Logo abaixo um botão com o texto “Autenticar”.
+Ao clicar no botão “Autenticar”, um cookie ou o localStorage deverá ser ativado com o conteúdo
+do campo “Login” armazenado nele, e este cookie ou o localStorage deverá indicar que o
+usuário foi devidamente autenticado, e em seguida retornar à página inicial. O botão somente
+realizará esta operação caso os dois campos acima tenham alguma informação digitada pelo
+usuário -->
