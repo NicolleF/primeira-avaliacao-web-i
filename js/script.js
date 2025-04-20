@@ -16,4 +16,5 @@ function changeStyle(value) {
     }
 }
 
-document.getElementById("footer").innerHTML = createFooter();
+document.getElementById("footer").innerHTML = createFooter()
+  
