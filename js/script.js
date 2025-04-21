@@ -4,16 +4,18 @@ function createFooter() {
     </footer>`
 }
 
-function changeStyle(value) {
-    const form = document.getElementById("updateForm");
-
-    if (form) {
-        if (value === 'custom') {
-            form.classList.add("custom-style");
-        } else {
-            form.classList.remove("custom-style");
-        }
-    }
-}
-
 document.getElementById("footer").innerHTML = createFooter();
+
+window.onload = function () {
+    const form = document.querySelector(".login-form");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault(); 
+
+            const login = document.getElementById("login").value.trim();
+            const senha = document.getElementById("senha").value.trim();
+           
+            localStorage.setItem("login", login);
+            localStorage.setItem("autenticado", "true");
+            window.location.href = "./index.html";
+        });
+};
