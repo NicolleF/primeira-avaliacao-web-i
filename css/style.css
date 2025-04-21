@@ -1,22 +1,4 @@
-.default-style {
-  font-family: Arial, sans-serif;
-  background-color: white;
-  color: purple;
-}
-
-.custom-style {
-  font-family: 'Courier New', Courier, monospace;
-  background-color: lightblue;
-  color: darkblue;
-}
-
-.login-form {
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px;
-}
-
+/* Estilo geral */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,17 +7,19 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding-top: 120px;
-  padding-bottom: 60px;
+  margin: 0;
+  background: linear-gradient(135deg, #955fd3, #534099);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Cabeçalho */
 header {
   position: fixed;
   top: 0;
   width: 100%;
   height: 80px;
-  background-color: #00aaff;
+  background: linear-gradient(135deg, #955fd3, #534099);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,13 +31,66 @@ header {
   height: 60px;
 }
 
-.login-button {
-  background-color: white;
-  color: #00aaff;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
+.user-profile {
+  height: 50px;
+  align-items: center;
+}
+
+.user-name {
+  color: white;
+  font-size: 100%;
+  margin-left: 0px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  z-index: 999;
+}
+
+/* Conteúdo principal */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  padding-top: 160px;
+  padding-bottom: 40px;
+  min-height: calc(100vh - 140px);
+  flex: 1;
+  overflow-y: auto;
+}
+
+.content h1,
+.content p {
+  color: white;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 30px;
+}
+
+.content p {
+  font-size: 18px;
+}
+
+.image-home {
+  max-width: 10%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 /* Menu principal */
@@ -61,7 +98,7 @@ header {
   position: fixed;
   top: 80px;
   width: 100%;
-  background-color: #0077cc;
+  background-color: #4b0082;
   z-index: 999;
   display: flex;
   justify-content: center;
@@ -69,10 +106,10 @@ header {
 
 .menu {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   gap: 20px;
   padding: 10px 0;
-  flex-wrap: wrap;
 }
 
 .menu li {
@@ -83,15 +120,20 @@ header {
   font-weight: bold;
 }
 
-.menu li ul li {
-  font-weight: 100;
+.menu li:hover {
+  background-color: #955fd3;
+  transition: background-color 0.3s;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
 }
 
 .menu li ul {
   display: none;
   position: absolute;
-  background-color: #005fa3;
-  padding: 10px;
+  background-color: grey;
   list-style: none;
   top: 100%;
   left: 0;
@@ -101,44 +143,319 @@ header {
   display: block;
 }
 
-.menu li a {
+.menu li ul li {
+  padding: 10px;
+  font-weight: 100;
+}
+
+.menu li ul li:hover {
+  background-color: #4b0082;
+}
+
+/* Formulários */
+.login-form,
+.default-style-update-form,
+.custom-style-update-form {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  backdrop-filter: blur(10px);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.login-form {
+  max-width: 30%;
+}
+
+.default-style-update-form,
+.custom-style-update-form {
+  max-width: 50%;
+}
+
+.login-form button,
+.default-style-update-form button,
+.custom-style-update-form button {
+  padding: 10px;
+  background-color: grey;
   color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
   text-decoration: none;
 }
 
-/* Rodapé */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #00aaff;
-  color: white;
-  text-align: center;
-  line-height: 60px;
+.login-form button:hover,
+.default-style-update-form button:hover,
+.custom-style-update-form button:hover {
+  background-color: #4b0082;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
+.login-form label,
+.default-style-update-form label,
+.custom-style-update-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.login-form input,
+.default-style-update-form input,
+.default-style-update-form textarea,
+.custom-style-update-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.form-style-selection {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-style-selection label {
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
+
+.form-style-selection select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  width: 200px;
+}
+
+.form-style-selection select:focus,
+.login-form input:focus,
+.default-style-update-form input:focus,
+.custom-style-update-form input:focus {
+  border-color: #4b0082;
+  outline: none;
+}
+
+.default-style-update-form {
+  font-family: Arial, sans-serif;
+  color: purple;
+}
+
+.custom-style-update-form label {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.custom-style-update-form input,
+.custom-style-update-form textarea {
+  background-color: lightblue;
+}
+
+.form-style-selection select:focus,
+.login-form input:focus,
+.default-style-update-form input:focus,
+.custom-style-update-form input:focus {
+  border-color: #4b0082;
+  outline: none;
+}
+
+/* Particularidades no estilo do cadastro */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.custom-style-update-form label {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.custom-style-update-form input,
+.custom-style-update-form textarea {
+  background-color: lightblue;
+}
+
+
+/* Estilo da seleção de estilo do formulario de cadastro */
+.form-style-selection {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-style-selection label {
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
+
+.form-style-selection select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  width: 200px;
+}
+
+@media (max-width: 1024px) {
+
+  .logo,
+  .user-profile {
+    height: 40px;
+  }
+
+  .content h1 {
+    font-size: 24px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
   .menu {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
   }
 
   .menu li {
     font-size: 14px;
+    padding: 8px;
   }
 
-  header,
-  .nav-principal {
-    flex-direction: row;
-    align-items: center;
+  .menu li ul {
+    position: static;
   }
 
-  .login-button {
-    padding: 6px 12px;
+  .menu li:hover ul {
+    display: block;
+    position: relative;
+  }
+
+  .login-form {
+    max-width: 45%;
+  }
+  
+  .default-style-update-form,
+  .custom-style-update-form {
+    max-width: 60%;
+  }
+
+  footer {
+    white-space: normal;
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .form-style-selection {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 50%;
+  }
+
+  .form-style-selection label,
+  .form-style-selection select {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-form {
+    max-width: 50%;
+  }
+  
+  .default-style-update-form,
+  .custom-style-update-form {
+    max-width: 70%;
+  }
+
+  .content h1 {
+    font-size: 22px;
+  }
+
+  .content p {
     font-size: 14px;
+  }
+
+  .form-style-selection {
+    flex-direction: column;
+  }
+
+  .form-style-selection label,
+  .form-style-selection select {
+    width: 100%;
+  }
+
+  .image-home {
+    max-width: 15%;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-form {
+    max-width: 75%;
+  }
+  
+  .default-style-update-form,
+  .custom-style-update-form {
+    max-width: 90%;
+  }
+  .content h1 {
+    font-size: 20px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+
+  .form-style-selection {
+    flex-direction: column;
+  }
+
+  .form-style-selection label,
+  .form-style-selection select {
+    width: 100%;
+  }
+
+  .image-home {
+    max-width: 20%;
+  }
+
+  footer {
+    font-size: 10px;
+    padding: 8px;
   }
 }
