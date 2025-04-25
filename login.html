@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,29 @@
     <script src="js/script.js" defer></script>
     <title>ONG ACN</title>
 </head>
+
 <body>
+    <div id="header"></div>
+    <div id="nav"></div>
+    <main class="content">
+        <h1>Login</h1>
+        <p>Por favor, insira suas credenciais para acessar sua conta.</p>
+
+        <form action="#" method="post" class="login-form">
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" id="login" name="login" placeholder="Login" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+            </div>
+
+            <button type="submit">Autenticar</button>
+        </form>
+    </main>
     <div id="footer"></div>
 </body>
+
 </html>
