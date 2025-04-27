@@ -275,6 +275,10 @@ footer {
   margin-bottom: 10px;
 }
 
+#motivo {
+  resize: none;
+}
+
 .form-style-selection {
   margin-bottom: 20px;
   width: 100%;
