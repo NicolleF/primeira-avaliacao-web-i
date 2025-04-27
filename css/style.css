@@ -1,4 +1,3 @@
-/* Estilo geral */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -33,14 +32,30 @@ header {
 
 .user-profile {
   height: 50px;
-  align-items: center;
+  width: 50px;
+  min-height: 50px;
+  min-width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
+
+header a:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
 
 .user-name {
   color: white;
   font-size: 100%;
-  margin-left: 0px;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
+
 
 footer {
   position: fixed;
@@ -58,7 +73,6 @@ footer {
   z-index: 999;
 }
 
-/* Conteúdo principal */
 .content {
   display: flex;
   flex-direction: column;
@@ -93,7 +107,6 @@ footer {
   margin-bottom: 20px;
 }
 
-/* Menu principal */
 .nav-principal {
   position: fixed;
   top: 80px;
@@ -137,6 +150,7 @@ footer {
   list-style: none;
   top: 100%;
   left: 0;
+  min-width: 100%;
 }
 
 .menu li:hover ul {
@@ -152,7 +166,45 @@ footer {
   background-color: #4b0082;
 }
 
-/* Formulários */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.about-item {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1 1 250px;
+  min-width: 250px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.about-item:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.about-item h2 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.about-item p {
+  font-size: 16px;
+  color: white;
+}
+
 .login-form,
 .default-style-update-form,
 .custom-style-update-form {
@@ -273,63 +325,7 @@ footer {
   background-color: lightblue;
 }
 
-.form-style-selection select:focus,
-.login-form input:focus,
-.default-style-update-form input:focus,
-.custom-style-update-form input:focus {
-  border-color: #4b0082;
-  outline: none;
-}
-
-/* Particularidades no estilo do cadastro */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.custom-style-update-form label {
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.custom-style-update-form input,
-.custom-style-update-form textarea {
-  background-color: lightblue;
-}
-
-
-/* Estilo da seleção de estilo do formulario de cadastro */
-.form-style-selection {
-  margin-bottom: 20px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.form-style-selection label {
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-}
-
-.form-style-selection select {
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fff;
-  color: #333;
-  cursor: pointer;
-  transition: border-color 0.3s;
-  width: 200px;
-}
-
 @media (max-width: 1024px) {
-
   .logo,
   .user-profile {
     height: 40px;
@@ -346,26 +342,34 @@ footer {
   .menu {
     gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .menu li {
     font-size: 14px;
     padding: 8px;
+    position: relative;
+    z-index: 10;
   }
 
   .menu li ul {
-    position: static;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: grey;
+    min-width: 100%;
+    z-index: 999;
   }
 
   .menu li:hover ul {
     display: block;
-    position: relative;
   }
 
   .login-form {
     max-width: 45%;
   }
-  
+
   .default-style-update-form,
   .custom-style-update-form {
     max-width: 60%;
@@ -392,11 +396,12 @@ footer {
   }
 }
 
+
 @media (max-width: 768px) {
   .login-form {
     max-width: 50%;
   }
-  
+
   .default-style-update-form,
   .custom-style-update-form {
     max-width: 70%;
@@ -428,11 +433,12 @@ footer {
   .login-form {
     max-width: 75%;
   }
-  
+
   .default-style-update-form,
   .custom-style-update-form {
     max-width: 90%;
   }
+
   .content h1 {
     font-size: 20px;
   }
