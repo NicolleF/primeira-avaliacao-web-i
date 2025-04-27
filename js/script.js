@@ -10,7 +10,7 @@ function createHeader() {
 
     return `<header>
                 <a href="index.html"><img src="images/logo petshop.png" alt="Logo" class="logo"></a>
-                <a href=${autenticado == "true" ? "cadastro.html" : ""}><img src="images/perfil-vazio.jpg" alt="Usuario" class="user-profile">
+                <a href=${autenticado == "true" ? "cadastro.html" : ""}>${autenticado == "true" ? "<img src=\"images/perfil-vazio.jpg\" alt=\"Usuario\" class=\"user-profile\">" : ""}
                     <p class="user-name">${login}</p>
                 </a>
             </header>`
@@ -76,11 +76,10 @@ window.onload = function () {
     });
 };
 
-// Redirecionar após envio do cadastro
 const updateForm = document.getElementById("updateForm");
 if (updateForm) {
     updateForm.addEventListener("submit", function (e) {
-        e.preventDefault(); // impede o envio real
+        e.preventDefault();
         localStorage.setItem("cadastroAtualizado", "true");
         window.location.href = "index.html";
     });
